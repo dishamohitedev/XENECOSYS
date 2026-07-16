@@ -99,7 +99,6 @@ XENECOSYS/
 |   `-- architecture-diagrams/
 |-- ppt/
 |-- report/
-|-- videos/
 |-- XenComm/
 |   |-- app.ui/
 |   |   |-- Broadcast.jpg.jpg
