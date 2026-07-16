@@ -39,7 +39,7 @@ User A -> XenHub A -> Encrypted Bundle -> XenRelay (Data Mule) -> XenHub B -> Us
 - **Sync:** Automatic upload/download when near XenHub
 - **Offline-First:** Designed for no internet dependency
 
-![XenComm Home UI](XenComm/app.ui/home.jpg)
+<img src="XenComm/app.ui/home.jpg" alt="XenComm Home UI" width="320">
 
 ### XenRelay (Data Mule)
 Vehicles physically transport encrypted message bundles between hubs.
