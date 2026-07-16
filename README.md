@@ -69,6 +69,11 @@ Screenshots for the XenComm mobile app:
 - `Others.jpg.jpg` - Additional utility screens
 - `Schedule.jpg.jpg` - Message scheduling and queue management
 
+## Document
+
+- [PPT](ppt/Team%20Zephyr.pdf)
+- [Report](report/XenEcosys.pdf)
+
 ## Project Files
 
 - [Presentation PDF](ppt/Team%20Zephyr.pdf)
