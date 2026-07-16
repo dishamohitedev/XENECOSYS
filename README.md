@@ -208,3 +208,14 @@ flutter run
 - **Privacy:** End-to-end encryption; no unencrypted cloud storage
 - **Scalability:** Supports hybrid P2P, mesh, and DTN modes
 - **Community-First:** Local hubs empower grassroots connectivity
+
+---
+
+## Authors
+
+| Author | GitHub |
+|--------|--------|
+| **Disha Mohite** | [@dishamohitedev](https://github.com/dishamohitedev) |
+| **Hemant Thakur** | [@stackht](https://github.com/stackht) |
+| **Vedh Pokharkar** | [@Vedh28](https://github.com/Vedh28) |
+| **Nihal Mishra** | [@NihalMishra3009](https://github.com/NihalMishra3009) |
