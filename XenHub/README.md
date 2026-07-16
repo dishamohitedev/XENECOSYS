@@ -70,7 +70,9 @@ XenHub/
 
 ## APK Release
 
-The XenHub APK or desktop release will be published in the GitHub repository's **Releases** section when a new version is tagged and pushed.
+No XenHub release has been published yet.
+
+When a tagged version is released, the XenHub APK or desktop build will appear in the GitHub repository's **Releases** section.
 
 To download it:
 
