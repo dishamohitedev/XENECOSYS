@@ -6,36 +6,36 @@ Decentralised, infrastructure-independent communication ecosystem for post-digit
 
 ## Overview
 
-*Four Core Pillars:*
+**Four Core Pillars:**
 
 | Component | Role |
 |-----------|------|
-| *XenComm* | Mobile app for users to register, message, sync with local nodes |
-| *XenHub* | Offline community hub managing message queues and bundling |
-| *XenRelay* | Vehicle software transporting encrypted bundles between hubs |
-| *XenRoute* | Adaptive routing engine selecting optimal path (Direct/Hub/Relay) |
+| **XenComm** | Mobile app for users to register, message, sync with local nodes |
+| **XenHub** | Offline community hub managing message queues and bundling |
+| **XenRelay** | Vehicle software transporting encrypted bundles between hubs |
+| **XenRoute** | Adaptive routing engine selecting optimal path (Direct/Hub/Relay) |
 
 ---
 
 ## Architecture
 
 ### Information Flow
-
+```
 User A → XenHub A → Encrypted Bundle → XenRelay (Data Mule) → XenHub B → User B
-
+```
 
 ### XenComm (Mobile App)
-- *Unique Identity:* HX-XXXXXXXX format (no phone/email)
-- *Encryption:* AES-256 (content) + RSA-2048 (identities)
-- *Message Priority:* Emergency, Medical, Government, Normal
-- *Sync:* Automatic upload/download when near XenHub
-- *Offline-First:* Designed for no internet dependency
+- **Unique Identity:** HX-XXXXXXXX format (no phone/email)
+- **Encryption:** AES-256 (content) + RSA-2048 (identities)
+- **Message Priority:** Emergency, Medical, Government, Normal
+- **Sync:** Automatic upload/download when near XenHub
+- **Offline-First:** Designed for no internet dependency
 
 ### XenHub (Desktop/Admin Hub)
-- *Hub-Blindness:* Stores encrypted blobs only; cannot read contents
-- *Bundling:* Groups messages into encrypted bundles for physical transport
-- *Dashboard:* Track connected users, pending bundles, emergency alerts
-- *Local Management:* No cloud dependency
+- **Hub-Blindness:** Stores encrypted blobs only; cannot read contents
+- **Bundling:** Groups messages into encrypted bundles for physical transport
+- **Dashboard:** Track connected users, pending bundles, emergency alerts
+- **Local Management:** No cloud dependency
 
 ### XenRelay (Data Mule)
 Vehicles (buses, ambulances) physically transport encrypted message bundles between hubs.
@@ -49,21 +49,21 @@ Adaptive routing selecting optimal delivery path based on cached network metadat
 
 ### Mobile App (APP.UI/)
 Screenshots demonstrating XenComm user interface:
-- *Broadcast:* Emergency and government broadcast display
-- *Contact:* User contact list and management
-- *Homes:* Main dashboard and message overview
-- *Others:* Additional utility screens
-- *Schedule:* Message scheduling and queue management
+- **Broadcast:** Emergency and government broadcast display
+- **Contact:** User contact list and management
+- **Homes:** Main dashboard and message overview
+- **Others:** Additional utility screens
+- **Schedule:** Message scheduling and queue management
 
 ### Hub Dashboard (Software.UI/)
 Screenshots of XenHub admin interface:
-- *Dashboard:* System overview and status
-- *DTN:* Data Transfer Node visualization
-- *Emergency Broadcast:* Alert transmission interface
-- *Emergency Broadcast Message Acknowledgment:* Delivery confirmation
-- *Queue:* Pending message and bundle queue
-- *Relay:* Data mule and vehicle status tracking
-- *User:* Connected users and activity management
+- **Dashboard:** System overview and status
+- **DTN:** Data Transfer Node visualization
+- **Emergency Broadcast:** Alert transmission interface
+- **Emergency Broadcast Message Acknowledgment:** Delivery confirmation
+- **Queue:** Pending message and bundle queue
+- **Relay:** Data mule and vehicle status tracking
+- **User:** Connected users and activity management
 
 ---
 
@@ -71,33 +71,30 @@ Screenshots of XenHub admin interface:
 
 | Category | Technology |
 |----------|------------|
-| *Framework* | Flutter (Material 3 Design) |
-| *State Management* | Riverpod |
-| *Persistence* | SQLite (sqflite) |
-| *Encryption* | AES-256 + RSA-2048 |
-| *Routing* | XenRoute (Opportunistic Networking) |
+| **Framework** | Flutter (Material 3 Design) |
+| **State Management** | Riverpod |
+| **Persistence** | SQLite (sqflite) |
+| **Encryption** | AES-256 + RSA-2048 |
+| **Routing** | XenRoute (Opportunistic Networking) |
 
 ---
 
 ## Repository Structure
 
-
+```
 XENECOSYS/
 ├── .github/
 │   └── workflows/
-│       └── xencomm-release.yml                      # CI/CD release automation
-│
-├── docs/                                            # Documentation (optional)
+│       └── xencomm-release.yml
+├── docs/
 │   └── architecture-diagrams/
-│
-├── APP.UI/                                          # Mobile App Screenshots
+├── APP.UI/
 │   ├── Broadcast.jpg
 │   ├── Contact.jpg
 │   ├── Homes.jpg
 │   ├── Others.jpg
 │   └── Schedule.jpg
-│
-├── Software.UI/                                     # Hub Dashboard Screenshots
+├── Software.UI/
 │   ├── Dashboard.png
 │   ├── DTN.png
 │   ├── Emergency broadcast.png
@@ -105,53 +102,61 @@ XENECOSYS/
 │   ├── Queue.png
 │   ├── Relay.png
 │   └── User.png
-│
-├── XenComm/                                         # Mobile App (Flutter)
-│   ├── pubspec.yaml                                 # Dependencies
-│   ├── analysis_options.yaml                        # Linter config
+├── XenComm/
+│   ├── pubspec.yaml
+│   ├── analysis_options.yaml
 │   ├── README.md
 │   ├── LICENSE
 │   ├── lib/
-│   │   ├── core/                                    # Constants, config, utils
-│   │   ├── models/                                  # Data models
-│   │   ├── services/                                # SQLite, Crypto, Notifications
+│   │   ├── core/
+│   │   ├── models/
+│   │   ├── services/
 │   │   ├── ui/
-│   │   │   ├── screens/                             # Chat, Broadcast, Contact, etc
-│   │   │   ├── widgets/                             # Reusable components
-│   │   │   └── themes/                              # Material 3 design
-│   │   ├── simulation/                              # DTN visualization
+│   │   │   ├── screens/
+│   │   │   ├── widgets/
+│   │   │   └── themes/
+│   │   ├── simulation/
 │   │   └── main.dart
-│   ├── assets/                                      # Images, fonts, data files
+│   ├── assets/
 │   ├── android/
 │   ├── ios/
 │   ├── web/
 │   ├── linux/
 │   ├── macos/
 │   ├── windows/
-│   └── test/                                        # Unit & widget tests
-│
-├── XenHub/                                          # Hub Admin App (Flutter)
-│   ├── pubspec.yaml                                 # Dependencies
-│   ├── analysis_options.yaml                        # Linter config
+│   └── test/
+├── XenHub/
+│   ├── pubspec.yaml
+│   ├── analysis_options.yaml
 │   ├── README.md
 │   ├── LICENSE
 │   ├── lib/
-│   │   ├── core/                                    # Constants, utils
-│   │   ├── models/                                  # Hub, Bundle, User models
-│   │   ├── services/                                # API, Database, Crypto
+│   │   ├── core/
+│   │   ├── models/
+│   │   ├── services/
 │   │   ├── ui/
-│   │   │   ├── screens/                             # Dashboard, Queue, Relay, User
-│   │   │   ├── widgets/                             # Reusable components
-│   │   │   └── themes/                              # Material 3 design
+│   │   │   ├── screens/
+│   │   │   ├── widgets/
+│   │   │   └── themes/
 │   │   └── main.dart
-│   ├── assets/                                      # Icons, images
+│   ├── assets/
 │   ├── android/
 │   ├── windows/
-│   └── test/                                        # Tests
-│
-├── LICENSE                                          # Project license
-└── README.md                                        # Project root README
+│   └── test/
+├── LICENSE
+└── README.md
+```
 
+**Core Folders:**
+- `lib/core/` — Constants, config, utilities
+- `lib/models/` — Data models (User, Hub, Message, Bundle)
+- `lib/services/` — SQLite, Crypto, Notifications, API
+- `lib/ui/screens/` — App screens (Chat, Broadcast, Dashboard, etc)
+- `lib/ui/widgets/` — Reusable UI components
+- `lib/ui/themes/` — Material 3 theming
+- `lib/simulation/` — DTN visualization (XenComm only)
+- `assets/` — Images, fonts, data files
+- `test/` — Unit & widget tests
 
 ---
 
@@ -161,45 +166,45 @@ XENECOSYS/
 - Flutter 3.x
 
 ### XenComm (Mobile APK)
-bash
+```bash
 cd XenComm
 flutter pub get
 flutter pub run build_runner build  # Generate JSON serialization
 flutter build apk --release
-
+```
 
 ### XenHub (Desktop/Admin)
-bash
+```bash
 cd XenHub
 flutter pub get
 flutter run
-
+```
 
 ---
 
 ## Key Features
 
-- *DTN Simulator:* Visualize data mule movement between hubs; demonstrate end-to-end delivery without internet
-- *Emergency Broadcasts:* Highest-priority alerts (Medical/Food/Gov) sync before normal traffic
-- *Offline Notifications:* Local-only triggers; no Firebase or push services
-- *Infrastructure-Independent:* Every device becomes part of infrastructure
-- *Privacy-First:* No central server stores unencrypted data or history
-- *Hybrid Modes:* Direct P2P, mesh, DTN-relay
+- **DTN Simulator:** Visualize data mule movement between hubs; demonstrate end-to-end delivery without internet
+- **Emergency Broadcasts:** Highest-priority alerts (Medical/Food/Gov) sync before normal traffic
+- **Offline Notifications:** Local-only triggers; no Firebase or push services
+- **Infrastructure-Independent:** Every device becomes part of infrastructure
+- **Privacy-First:** No central server stores unencrypted data or history
+- **Hybrid Modes:** Direct P2P, mesh, DTN-relay
 
 ---
 
 ## Release Process
 
-*Automated via xencomm-release workflow:*
+**Automated via xencomm-release workflow:**
 
-1. Tag commit (e.g., xencomm-v1.0.0)
+1. Tag commit (e.g., `xencomm-v1.0.0`)
 2. Push tags → triggers build and upload to GitHub Releases
 
 ---
 
 ## Design Philosophy
 
-- *Infrastructure-Independent:* Resilient without centralized networks
-- *Privacy:* End-to-end encryption; no unencrypted cloud storage
-- *Scalability:* Supports hybrid P2P, mesh, and DTN modes
-- *Community-First:* Local hubs empower grassroots connectivity
+- **Infrastructure-Independent:** Resilient without centralized networks
+- **Privacy:** End-to-end encryption; no unencrypted cloud storage
+- **Scalability:** Supports hybrid P2P, mesh, and DTN modes
+- **Community-First:** Local hubs empower grassroots connectivity
